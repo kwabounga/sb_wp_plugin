@@ -26,7 +26,8 @@ et enfin `Activer l'extension`.
    - renseigner la *clé publique* SPREAD,  
    - ainsi que l'url de la homepage de wordpress.  
 
-3. Cliquez sur `Enregistrer`  
+3. Activer / desactiver la popup si besoin  
+4. Cliquez sur `Enregistrer`  
 
 ----
 
