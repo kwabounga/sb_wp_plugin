@@ -1,18 +1,19 @@
 <?php
 /**
  * @package Spread Widget WP Plugin
- * @version 1.0.0
+ * @version 1.1.0
  */
 /*
-Plugin Name: Spread Widget WP Plugin
-Description: make spread popup possible on wordpress
-Author: Jean-Yves Chaillou
-Version: 1.0.0
-Author URI: http://kwabounga.fr/
+  Plugin Name: Spread Widget WP Plugin
+  Plugin URI: https://github.com/kwabounga/sb_wp_plugin/
+  Description: Spread popup show up on Wordpress
+  Author: Jean-Yves Chaillou
+  Version: 1.1.0
+  Author URI: http://kwabounga.fr/
 */
 
 
-const SB_WP_TILE = "SPREAD Popup Widjet options";
+const SB_WP_TILE = "SPREAD Popup Widget options";
 const SB_WP_TILE_MENU = "SPREAD Popup";
 
 function  getPluginNamePath(){
@@ -50,9 +51,6 @@ function sb_wp_plugins_page()
 
   $sb_wp_public_key = get_option('sb_wp_publickey');
   $sb_wp_home_page = get_option('sb_wp_homepage');
-  $plug_url = getPluginNamePath();
-  var_dump($plug_url);
-  
   ?>
   <style>
     .options_head{
@@ -102,7 +100,7 @@ add_action('admin_menu', 'sb_wp_plugins_add_admin_page');
 /**
  * SET CALLBACK ON CLICK ADMIN BUTTON
  */
-function sb_wp_plugins_add_widjet_in_front() {
+function sb_wp_plugins_add_Widget_in_front() {
   $sb_wp_public_key = get_option('sb_wp_publickey');
   $sb_wp_home_page = get_option('sb_wp_homepage');
   ?>
@@ -135,4 +133,4 @@ function sb_wp_plugins_add_widjet_in_front() {
   <?php
   }
   
-  add_action('wp_head', 'sb_wp_plugins_add_widjet_in_front');
+  add_action('wp_head', 'sb_wp_plugins_add_Widget_in_front');
