@@ -15,6 +15,12 @@ Author URI: http://kwabounga.fr/
 const SB_WP_TILE = "SPREAD Popup Widjet options";
 const SB_WP_TILE_MENU = "SPREAD Popup";
 
+function  getPluginNamePath(){
+  $plug_url = explode("\\",plugin_dir_path( __FILE__ ));
+  $plug_url = $plug_url[count($plug_url) -1];
+  return $plug_url;
+}
+
 /**
  * ADMIN BUTTON DEFINITION
  */
@@ -26,7 +32,7 @@ function sb_wp_plugins_add_admin_page()
     'manage_options',
     'spread_widget',
     'sb_wp_plugins_page',
-    plugins_url('sb_wp_plug/images/spread_picto_20.svg')
+    plugins_url(getPluginNamePath().'images/spread_picto_20.svg')
   );
 }
 
@@ -44,6 +50,9 @@ function sb_wp_plugins_page()
 
   $sb_wp_public_key = get_option('sb_wp_publickey');
   $sb_wp_home_page = get_option('sb_wp_homepage');
+  $plug_url = getPluginNamePath();
+  var_dump($plug_url);
+  
   ?>
   <style>
     .options_head{
@@ -55,7 +64,7 @@ function sb_wp_plugins_page()
   </style>
   <div class="wrap">
     <div class="options_head">
-      <a href="https://social-sb.com/login" target="_blank"><img src="<?= plugins_url('sb_wp_plug/images/SPREAD_LOGO_HORIZ_RVB.svg');?>"  width="251" height="79"  alt="<?php echo SB_WP_TILE;?>"></a>
+      <a href="https://social-sb.com/login" target="_blank"><img src="<?= plugins_url(getPluginNamePath().'images/SPREAD_LOGO_HORIZ_RVB.svg');?>"  width="251" height="79"  alt="<?php echo SB_WP_TILE;?>"></a>
       <h1><?php echo SB_WP_TILE;?></h1>
     </div>
     
@@ -112,7 +121,7 @@ function sb_wp_plugins_add_widjet_in_front() {
           e.async = true;
           e.charset = "UTF-8";
           e.id = "spread-tracker";
-          e.src = "<?= plugins_url('sb_wp_plug/src/sb-tracker.js');?>"; // overwrite js path here
+          e.src = "<?= plugins_url(getPluginNamePath().'src/sb-tracker.js');?>"; // overwrite js path here
           document.body.appendChild(e)
       }
       if (window.addEventListener) {
