@@ -5,8 +5,8 @@
 function sb_wp_plugins_add_admin_page()
 {
   add_menu_page(
-    SB_WP_TILE,
-    SB_WP_TILE_MENU,
+    SB_WP_TITLE,
+    SB_WP_TITLE_MENU,
     'manage_options',
     'spread_widget',
     'sb_wp_plugins_page',
@@ -14,9 +14,8 @@ function sb_wp_plugins_add_admin_page()
   );
 }
 
-
 /**
- * BUTTON MENU CALLBACK 
+ * BUTTON MENU CALLBACK
  * SET configuration
  */
 function sb_wp_plugins_page()
@@ -34,6 +33,7 @@ function sb_wp_plugins_page()
   $sb_wp_debug_mode = get_option('sb_wp_debugmode', false);
   //var_dump($sb_wp_debug_mode)
   ?>
+
   <style>
     .options_head{
       display: flex;
@@ -41,20 +41,39 @@ function sb_wp_plugins_page()
       align-items: center;
       border-left: 3px #EE6900 solid;
     }
+    .quote {
+      font-style: italic;
+      font-size: medium;
+      color: #919191;
+    }
+    .version {
+      font-size: 13px;
+      margin: 0;
+      line-height: 1.55;
+      width: -webkit-fill-available;
+      display: flex;
+      flex-direction: row-reverse;
+      font-style: italic;
+      color: #EE6900;
+    }
   </style>
+
   <div class="wrap">
     <div class="options_head">
-      <a href="https://social-sb.com/login" target="_blank"><img src="<?= plugins_url(getPluginNamePath().'images/SPREAD_LOGO_HORIZ_RVB.svg');?>"  width="251" height="79"  alt="<?php echo SB_WP_TILE;?>"></a>
-      <h1><?php echo SB_WP_TILE;?></h1>
+      <a href="https://social-sb.com/login" target="_blank"><img src="<?= plugins_url(getPluginNamePath().'images/SPREAD_LOGO_HORIZ_RVB.svg');?>"  width="251" height="79"  alt="<?= SB_WP_TITLE;?>"></a>
+      <h1><span> <?= SB_WP_TITLE;?></span>
+          <span class="quote"> (pour wordpress)</span>
+          <span class="version">v<?= SB_VERSION;?></span>
+      </h1>
     </div>
-    
+    <hr/>
     <h2>Configuration</h2>
     <table class="form-table" role="presentation">
       <form method="post" action="">
         <tbody>        
         <?php /* PUBLIC KEY */ ?>
           <tr>
-            <th scope="row"><label for="public_key">Clé Publique SPREAD :</label></th>
+            <th scope="row"><label for="public_key">Clé Publique:</label></th>
             <td>
               <input  type="text" 
                       id="public_key" 
@@ -69,7 +88,7 @@ function sb_wp_plugins_page()
           </tr>
           <?php /* HOME PAGE URL */ ?>
           <tr>
-            <th scope="row"><label for="home_page">Home page URL : </label></th>
+            <th scope="row"><label for="home_page">Homepage url: </label></th>
             <td>
               <input  type="text" 
                       id="home_page" 
@@ -84,7 +103,7 @@ function sb_wp_plugins_page()
           </tr>
           <?php /* ENABLE PLUGIN */ ?>
           <tr>
-            <th scope="row"><label for="plugin_enabled">Activer la popup :</label></th>
+            <th scope="row"><label for="plugin_enabled">Activer la popup:</label></th>
             <td>
               <input type="checkbox" id="plugin_enabled" name="plugin_enabled" <?= $sb_wp_enabled?'checked':'';?> aria-describedby="plugin_enabled-description">
               <p class="description" id="plugin_enabled-description">active/désactive la popup</p>
@@ -92,7 +111,7 @@ function sb_wp_plugins_page()
           </tr>
           <?php /* DEBUG SWITCH */ ?>
           <tr>
-            <th scope="row"><label for="debug_mode">Debug Mode (for dev only) : </label></th>
+            <th scope="row"><label for="debug_mode">Debug (dev only): </label></th>
             <td>
               <input type="checkbox" id="debug_mode" name="debug_mode" <?= $sb_wp_debug_mode?'checked':'';?> aria-describedby="debug_mode-description">
               <p class="description" id="debug_mode-description">voir les logs du sb-tracker.js dans la console</p>
@@ -105,9 +124,11 @@ function sb_wp_plugins_page()
         </tbody>
       </form>
     </table>
+    <hr/>
   </div>
   <?php
 }
+
 /**
  * SET CALLBACK ON CLICK ADMIN BUTTON
  */

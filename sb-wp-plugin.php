@@ -1,20 +1,21 @@
 <?php
 /**
  * @package Spread Widget WP Plugin
- * @version 1.2.0
+ * @version 1.2.1
  */
 /*
-  Plugin Name: Spread Widget WP Plugin
-  Plugin URI: https://github.com/kwabounga/sb_wp_plugin/
-  Description: Spread popup show up on Wordpress
-  Author: Jean-Yves Chaillou
-  Version: 1.2.0
-  Author URI: http://kwabounga.fr/
+Plugin Name: Spread Widget WP Plugin
+Plugin URI: https://github.com/kwabounga/sb_wp_plugin/
+Description: Spread popup show up on Wordpress
+Author: Jean-Yves Chaillou
+Version: 1.2.1
+Author URI: http://kwabounga.fr/
 */
 
 
-const SB_WP_TILE = "SPREAD Popup Widget";
-const SB_WP_TILE_MENU = "SPREAD Popup";
+const SB_VERSION = "1.2.1";
+const SB_WP_TITLE = "SPREAD Popup Widget";
+const SB_WP_TITLE_MENU = "SPREAD Popup";
 
 /**
  * get the current plugin folder name /path/to/the/current/[folder_name/]
