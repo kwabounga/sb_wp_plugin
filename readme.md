@@ -1,4 +1,6 @@
-# SPREAD Popup Widget pour Wordpress  
+# ![logo spread](./images/spread_picto_20.svg) SPREAD Popup Widget
+
+*pour Wordpress*
 
 ## Téléchargement du plugin  
 
