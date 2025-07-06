@@ -130,6 +130,6 @@ function sb_wp_plugins_page()
 }
 
 /**
- * SET CALLBACK ON CLICK ADMIN BUTTON
+ * ACTION HOOK ADD BUTTON IN ADMIN MENU
  */
 add_action('admin_menu', 'sb_wp_plugins_add_admin_page');
